@@ -4,7 +4,6 @@ function computerPlay() {
     let computerSelection = Math.floor(Math.random() * 3);
     computerSelection = choice[computerSelection];
     return computerSelection;
-    // console.log(computerSelection);
 }
 
 function gameRound(playerSelection, computerSelection) {
@@ -33,11 +32,14 @@ function gameRound(playerSelection, computerSelection) {
 }
 
 function game() {
-    alert("Rock Paper Scissors! Best out of five wins!");
+    alert("Rock Paper Scissors! Best out of five wins! \n(Enter q at any time to quit.)");
     let playerScore = 0;
     let computerScore = 0;
     for (let rounds = 0; rounds < 5; rounds++) {
         alert(`Round ${rounds + 1}!`);
+        if (gameRound() === undefined) {
+            return;
+        }
         let scores = gameRound();
         computerScore += scores[0];
         playerScore += scores[1];
