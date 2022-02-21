@@ -6,25 +6,31 @@ function computerPlay() {
     return computerSelection;
 }
 
+function checkInput(input, array) {
+    if (!array.includes(input)) {
+        return false;
+    } return true;
+}
+
 function gameRound(playerSelection, computerSelection) {
     computerSelection = computerPlay();
     playerSelection = prompt("Rock, paper, scissors...").trim().toLowerCase();
     console.log(playerSelection, computerSelection);
     if (playerSelection === "q".trimEnd().toLowerCase())
         return;
-    if (!choice.includes(playerSelection)) {
-        alert("Invalid selection.")
+    while (!checkInput(playerSelection, choice)){
+        playerSelection = prompt("Invalid input. Please try again.");
     }
     if (choice.indexOf(computerSelection) === choice.indexOf(playerSelection)) {
-        alert("It's a tie!")
+        alert("It's a tie!");
         computerScore = 0;
         playerScore = 0;
     } else if (choice.indexOf(computerSelection) - choice.indexOf(playerSelection) == 1 || choice.indexOf(computerSelection) - choice.indexOf(playerSelection) == -2) {
-        alert(`You chose ${playerSelection}, but the computer chose ${computerSelection}. Sorry!`)
+        alert(`You chose ${playerSelection}, but the computer chose ${computerSelection}. Sorry!`);
         computerScore = 1;
         playerScore = 0;
     } else {
-        alert(`The computer chose ${computerSelection}, and you chose ${playerSelection}. Good job!`)
+        alert(`The computer chose ${computerSelection}, and you chose ${playerSelection}. Good job!`);
         computerScore = 0;
         playerScore = 1;
     }
@@ -37,24 +43,24 @@ function game() {
     let computerScore = 0;
     for (let rounds = 0; rounds < 5; rounds++) {
         alert(`Round ${rounds + 1}!`);
-        if (gameRound() === undefined) {
+        let scores = gameRound();
+        if (scores === undefined) {
             return;
         }
-        let scores = gameRound();
         computerScore += scores[0];
         playerScore += scores[1];
         console.log(`player: ${playerScore}, comp: ${computerScore}`);
     }
 
     if (playerScore > computerScore) {
-        alert("You win!")
+        alert("You win!");
     }
     else if (playerScore < computerScore) {
-        alert("The computer outsmarted you... this time.")
+        alert("The computer outsmarted you... this time.");
     }
     else {
         while (playerScore == computerScore) {
-            alert("Tiebreaker!")
+            alert("Tiebreaker!");
             let scores = gameRound();
             if (scores[0] > scores[1]) {
                 alert("Well fought, but the computer won.");
@@ -67,7 +73,7 @@ function game() {
             } continue;
         }
     }
-    alert("That's all! Thanks for playing!")
+    alert("That's all! Thanks for playing!");
 }
 
 game();
