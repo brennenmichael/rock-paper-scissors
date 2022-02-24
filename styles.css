@@ -1,0 +1,42 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+#buttons {
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    width: 100%;
+    max-width: 700px;
+    display: inline-block;
+    padding: 0.7em 1.4em;
+    margin: 60px;
+    border-radius: 0.15em;
+    text-decoration: none;
+    font-family: 'Roboto';
+    text-transform: uppercase;
+    font-weight: 900;
+    box-shadow: inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+    text-align: center;
+    position: relative;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}

@@ -37,19 +37,24 @@ function gameRound(playerSelection, computerSelection) {
     return [computerScore, playerScore];
 }
 
+function changeText(target, newtext) {
+    let elem = document.getElementById(target);
+    elem.textContent = newtext;
+}
+
 function game() {
-    alert("Rock Paper Scissors! Best out of five wins! \n(Enter q at any time to quit.)");
+    changeText('game-text', "Rock Paper Scissors! Best out of five wins! \n(Enter q at any time to quit.)")
     let playerScore = 0;
     let computerScore = 0;
     for (let rounds = 0; rounds < 5; rounds++) {
-        alert(`Round ${rounds + 1}!`);
+        achangeText('game-text', `Round ${rounds + 1}!`)
         let scores = gameRound();
         if (scores === undefined) {
             return;
         }
         computerScore += scores[0];
         playerScore += scores[1];
-        console.log(`player: ${playerScore}, comp: ${computerScore}`);
+        //console.log(`player: ${playerScore}, comp: ${computerScore}`);
     }
 
     if (playerScore > computerScore) {
@@ -76,4 +81,7 @@ function game() {
     alert("That's all! Thanks for playing!");
 }
 
-game();
+document.addEventListener('keyup', e => {
+if (e.key === 'Enter') return game();
+})
+
