@@ -22,15 +22,15 @@ function gameRound(playerSelection, computerSelection) {
         playerSelection = prompt("Invalid input. Please try again.");
     }
     if (choice.indexOf(computerSelection) === choice.indexOf(playerSelection)) {
-        alert("It's a tie!");
+        changeText('game-text', "It's a tie!");
         computerScore = 0;
         playerScore = 0;
     } else if (choice.indexOf(computerSelection) - choice.indexOf(playerSelection) == 1 || choice.indexOf(computerSelection) - choice.indexOf(playerSelection) == -2) {
-        alert(`You chose ${playerSelection}, but the computer chose ${computerSelection}. Sorry!`);
+        changeText('game-text', `You chose ${playerSelection}, but the computer chose ${computerSelection}. Sorry!`);
         computerScore = 1;
         playerScore = 0;
     } else {
-        alert(`The computer chose ${computerSelection}, and you chose ${playerSelection}. Good job!`);
+        changeText('game-text', `The computer chose ${computerSelection}, and you chose ${playerSelection}. Good job!`);
         computerScore = 0;
         playerScore = 1;
     }
