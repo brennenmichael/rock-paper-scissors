@@ -47,7 +47,7 @@ function game() {
     let playerScore = 0;
     let computerScore = 0;
     for (let rounds = 0; rounds < 5; rounds++) {
-        achangeText('game-text', `Round ${rounds + 1}!`)
+        changeText('game-text', `Round ${rounds + 1}!`)
         let scores = gameRound();
         if (scores === undefined) {
             return;
@@ -58,27 +58,27 @@ function game() {
     }
 
     if (playerScore > computerScore) {
-        alert("You win!");
+        changeText('game-text', 'You win!');
     }
     else if (playerScore < computerScore) {
-        alert("The computer outsmarted you... this time.");
+        changeText('game-text', 'The computer outsmarted you... this time.');
     }
     else {
         while (playerScore == computerScore) {
-            alert("Tiebreaker!");
+            changeText('game-text', 'Tiebreaker!');
             let scores = gameRound();
             if (scores[0] > scores[1]) {
-                alert("Well fought, but the computer won.");
+                changeText('game-text', 'Well fought, but the computer won.');
                 break;
             } else if (scores [1] > scores [0]) {
-                alert("You emerge victorious!");
+                changeText('game-text', 'You emerge victorious!');
                 break;
             } else {
-                alert("Another tie! Here we go again!")
+                changeText('game-text', 'Another tie! Here we go again!');
             } continue;
         }
     }
-    alert("That's all! Thanks for playing!");
+    changeText('game-text', "That's all! Thanks for playing!");
 }
 
 document.addEventListener('keyup', e => {
