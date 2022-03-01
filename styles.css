@@ -4,6 +4,24 @@
     box-sizing: border-box;
 }
 
+body {
+    background: linear-gradient(-45deg, #f2e03f, #efc03a, #eca035, #e8812f);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -43,13 +61,13 @@
 
 #game {
     flex-direction: row;
-    border: solid red 2px;
 }
 
 #game-text {
     font-size: 30px;
     resize: none;
     text-size-adjust: none;
+
 
 }
 
@@ -59,7 +77,16 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    border: solid red 2px;
+    color: white;
+    background-color: goldenrod;
+    font-size: 3em;
+    text-shadow: 0 .5px 0 #333, 0 1px 0 #333,
+                0 1.5px 0 #333, 0 2px 0 #333,
+                0 2.5px 0 #333, 0 3px 0 #333,
+                0 3.5px 0 #333, 0 4px 0 #333,
+                0 4.5px 0 #333, 0 5px 0 #333,
+                0 5.5px 0 #333, 0 6px 0 #333,
+                0 20px 30px rgba(0, 0, 0, 0.5);
 }
 
 #text-drop {
@@ -81,19 +108,19 @@
   .rock-drop {
     opacity:0;
     animation: drop .4s linear forwards;
-    color: #9b5de5;
+    color: brown;
   }
   
   .paper-drop {
     opacity:0;
     animation: drop .4s linear forwards 1s;
-    color: #f15bb5;
+    color: orangered;
   }
   
   .scissors-drop {
     opacity:0;
     animation: drop .4s linear forwards 2s;
-    color: #fee440;
+    color: gold;
   }
   
   @keyframes drop {
