@@ -40,3 +40,17 @@
 .btn:hover {
     transform: scale(1.1);
 }
+
+#game {
+    flex-direction: row;
+    border: solid red 2px;
+}
+
+.scorebox {
+    padding: 1em;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: solid red 2px;
+}

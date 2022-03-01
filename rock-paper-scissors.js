@@ -76,6 +76,10 @@ function changeText(target, newText) {
     //await sleep(2000)
 }
 
+function addToScore(target) {
+    let elem = document.querySelector(target)
+    elem.textContent++;
+}
 
 async function game() {
     changeText('game-text', "Rock Paper Scissors! Best out of five wins! \n(Enter q at any time to quit.)");
@@ -127,9 +131,7 @@ document.addEventListener('click', (e) => {
     if (element.tagName == "BUTTON") {
         pick = `${element.innerText}`.toLowerCase();
     }
-    console.log(pick)
     let computerChoice = computerPlay()
-    console.log(`computer choice is ${computerChoice}`)
     if (choice.includes(pick)) {
         if (computerChoice === 'rock') return computerRock(pick);
         if (computerChoice === 'paper') return computerPaper(pick);
@@ -139,8 +141,14 @@ document.addEventListener('click', (e) => {
 }) 
 
 function computerRock(playerChoice) {
-    if (playerChoice === 'scissors') changeText('game-text', "Computer chose rock. You lose!");
-    else if (playerChoice === 'paper') changeText('game-text', "Computer chose rock. You win!")
+    if (playerChoice === 'scissors') {
+        changeText('game-text', "Computer chose rock. You lose!");
+        addToScore('.computer-counter')
+    }
+    else if (playerChoice === 'paper') {
+        changeText('game-text', "Computer chose rock. You win!")
+        addToScore('.player-counter')
+    }
     else changeText('game-text', "Computer chose rock. Tie!")
     playerChoice = 'undefined'
     computerPlay()
@@ -148,8 +156,14 @@ function computerRock(playerChoice) {
 }
 
 function computerPaper(playerChoice) {
-    if (playerChoice === 'rock') changeText('game-text', "Computer chose paper. You lose!");
-    else if (playerChoice === 'scissors') changeText('game-text', "Computer chose paper. You win!")
+    if (playerChoice === 'rock') {
+        changeText('game-text', "Computer chose paper. You lose!");
+        addToScore('.computer-counter')
+    }
+    else if (playerChoice === 'scissors') {
+        changeText('game-text', "Computer chose paper. You win!")
+        addToScore('.player-counter')
+    }
     else changeText('game-text', "Computer chose paper. Tie!")
     playerChoice = 'undefined'
     computerPlay()
@@ -157,8 +171,14 @@ function computerPaper(playerChoice) {
 }
 
 function computerScissors(playerChoice) {
-    if (playerChoice === 'paper') changeText('game-text', "Computer chose scissors. You lose!");
-    else if (playerChoice === 'rock') changeText('game-text', "Computer chose scissors. You win!")
+    if (playerChoice === 'paper') {
+        changeText('game-text', "Computer chose scissors. You lose!");
+        addToScore('.computer-counter')
+    }
+    else if (playerChoice === 'rock') {
+        changeText('game-text', "Computer chose scissors. You win!")
+        addToScore('.player-counter')
+    }
     else changeText('game-text', "Computer chose scissors. Tie!")
     playerChoice = 'undefined'
     computerPlay()
