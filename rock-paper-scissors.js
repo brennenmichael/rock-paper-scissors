@@ -6,20 +6,6 @@ function computerPlay() {
     return computerSelection;
 }
 
-function isInArray(input, array) {
-    if (!array.includes(input)) {
-        return false;
-    } return true;
-}
-
-
-
-
-function playerResult() {
-    selection = playerPick();
-    console.log(`Selection is ${selection}`)
-}
-
 function roundResult(computerSelection, playerSelection) {
     computerSelection = computerPlay();
     playerSelection = playerPick();
@@ -38,33 +24,6 @@ function roundResult(computerSelection, playerSelection) {
     }
     return [computerScore, playerScore];
 }
-
-
-async function gameRound() { //previously (playerSelection, computerSelection)
-    changeText('game-text', "Rock, paper, scissors...");
-    computerSelection = computerPlay();
-    playerSelection = await playerPick();
-    playerSelection = new Promise((resolve, reject) => {
-        resolve(playerPick());
-    })
-    Promise.all([computerSelection, playerSelection]).then((selections) => {
-        console.log(selections);
-    })
-    // let selections;
-    // selections = [computerSelection, playerSelection]
-    // while (typeof playerSelection === 'undefined') {
-    //     playerSelection = playerPick();
-    // }
-    // if (typeof playerSelection !== 'undefined') {
-    //     console.log(selections);
-    //     return selections;
-    // }
-    // console.log(selections);
-}
-
-// Promise.all([promise1, promise2, promise3]).then((values) => {
-//     console.log(values);
-//   });
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -151,7 +110,6 @@ function computerRock(playerChoice) {
     }
     else changeText('game-text', "Computer chose rock. Tie!")
     playerChoice = 'undefined'
-    computerPlay()
     return
 }
 
@@ -166,7 +124,6 @@ function computerPaper(playerChoice) {
     }
     else changeText('game-text', "Computer chose paper. Tie!")
     playerChoice = 'undefined'
-    computerPlay()
     return
 }
 
@@ -181,6 +138,5 @@ function computerScissors(playerChoice) {
     }
     else changeText('game-text', "Computer chose scissors. Tie!")
     playerChoice = 'undefined'
-    computerPlay()
     return
 }
