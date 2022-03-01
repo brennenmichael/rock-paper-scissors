@@ -139,27 +139,27 @@ document.addEventListener('click', (e) => {
 }) 
 
 function computerRock(playerChoice) {
-    if (playerChoice === 'scissors') alert("You lose!");
-    else if (playerChoice === 'paper') alert("You win!")
-    else alert("Tie!")
+    if (playerChoice === 'scissors') changeText('game-text', "Computer chose rock. You lose!");
+    else if (playerChoice === 'paper') changeText('game-text', "Computer chose rock. You win!")
+    else changeText('game-text', "Computer chose rock. Tie!")
     playerChoice = 'undefined'
     computerPlay()
     return
 }
 
 function computerPaper(playerChoice) {
-    if (playerChoice === 'rock') alert("You lose!");
-    else if (playerChoice === 'scissors') alert("You win!")
-    else alert("Tie!")
+    if (playerChoice === 'rock') changeText('game-text', "Computer chose paper. You lose!");
+    else if (playerChoice === 'scissors') changeText('game-text', "Computer chose paper. You win!")
+    else changeText('game-text', "Computer chose paper. Tie!")
     playerChoice = 'undefined'
     computerPlay()
     return
 }
 
 function computerScissors(playerChoice) {
-    if (playerChoice === 'paper') alert("You lose!");
-    else if (playerChoice === 'rock') alert("You win!")
-    else alert("Tie!")
+    if (playerChoice === 'paper') changeText('game-text', "Computer chose scissors. You lose!");
+    else if (playerChoice === 'rock') changeText('game-text', "Computer chose scissors. You win!")
+    else changeText('game-text', "Computer chose scissors. Tie!")
     playerChoice = 'undefined'
     computerPlay()
     return
