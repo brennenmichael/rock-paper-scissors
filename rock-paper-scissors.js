@@ -16,25 +16,6 @@ function addToScore(target) {
     elem.textContent++;
 }
 
-document.addEventListener('keyup', e => {
-    if (e.key === 'Enter') return game();
-})
-
-document.addEventListener('click', (e) => {
-    let element = e.target;
-    let pick;
-    if (element.tagName == "BUTTON") {
-        pick = `${element.innerText}`.toLowerCase();
-    }
-    let computerChoice = computerPlay()
-    if (choice.includes(pick)) {
-        if (computerChoice === 'rock') return computerRock(pick);
-        if (computerChoice === 'paper') return computerPaper(pick);
-        if (computerChoice === 'scissors') return computerScissors(pick);
-    pick = "undefined" 
-    }
-}) 
-
 function computerRock(playerChoice) {
     if (playerChoice === 'scissors') {
         changeText('game-text', "Computer chose rock. You lose!");
@@ -76,3 +57,18 @@ function computerScissors(playerChoice) {
     playerChoice = 'undefined'
     return
 }
+
+document.addEventListener('click', (e) => {
+    let element = e.target;
+    let pick;
+    if (element.tagName == "BUTTON") {
+        pick = `${element.innerText}`.toLowerCase();
+    }
+    let computerChoice = computerPlay()
+    if (choice.includes(pick)) {
+        if (computerChoice === 'rock') return computerRock(pick);
+        if (computerChoice === 'paper') return computerPaper(pick);
+        if (computerChoice === 'scissors') return computerScissors(pick);
+    pick = "undefined" 
+    }
+}) 
